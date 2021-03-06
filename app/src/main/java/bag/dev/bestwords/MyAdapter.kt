@@ -2,14 +2,16 @@ package bag.dev.bestwords
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import java.util.zip.Inflater
 
 class MyAdapter(private var context: Context, private var items:ArrayList<IdeasStructure>) : RecyclerView.Adapter<MyAdapter.MyViewHolder>(){
+
     class MyViewHolder(view:View) : RecyclerView.ViewHolder(view) {
         var mainText:TextView = view.findViewById(R.id.textView)
     }
@@ -36,5 +38,12 @@ class MyAdapter(private var context: Context, private var items:ArrayList<IdeasS
     override fun getItemCount(): Int {
         return items.size
     }
+
+    fun updateAdapter(list:ArrayList<IdeasStructure>){
+        items.clear()
+        items.addAll(list)
+        notifyDataSetChanged()
+    }
+
 
 }
