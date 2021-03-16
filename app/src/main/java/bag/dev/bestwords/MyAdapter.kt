@@ -45,5 +45,10 @@ class MyAdapter(private var context: Context, private var items:ArrayList<IdeasS
         notifyDataSetChanged()
     }
 
+    fun removeItem(position: Int){
+        items.removeAt(position)
+        notifyItemRangeChanged(0,items.size)
+        notifyDataSetChanged()
+    }
 
 }
